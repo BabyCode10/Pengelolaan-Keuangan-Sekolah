@@ -19,7 +19,7 @@ class CreateTransaksisTable extends Migration
             $table->string('nama', 50);
             $table->string('kelas', 50);
             $table->string('jenis_bayaran', 25);
-            $table->double('jumlah_bayaran', 1, 2);
+            $table->double('jumlah_bayaran', 2, 1);
             $table->string('petugas', 50);
             $table->timestamps();
 
