@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are in edit transaksi!
                 </div>
             </div>
         </div>

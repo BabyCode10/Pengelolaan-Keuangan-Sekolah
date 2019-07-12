@@ -55,9 +55,9 @@
         <!-- Sidebar -->
         <ul class="sidebar navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span>
+                <a class="nav-link" href="{{ route('dashboard') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
                 </a>
             </li>
             <li class="nav-item dropdown">
@@ -66,14 +66,8 @@
                     <span>Siswa</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <h6 class="dropdown-header">Login Screens:</h6>
-                    <a class="dropdown-item">Login</a>
-                    <a class="dropdown-item">Register</a>
-                    <a class="dropdown-item">Forgot Password</a>
-                    <div class="dropdown-divider"></div>
-                    <h6 class="dropdown-header">Other Pages:</h6>
-                    <a class="dropdown-item">404 Page</a>
-                    <a class="dropdown-item">Blank Page</a>
+                    <a class="dropdown-item" href="{{ route('siswa.index') }}">List</a>
+                    <a class="dropdown-item" href="{{ route('siswa.create') }}">Add</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -82,19 +76,27 @@
                     <span>Transaksi</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <h6 class="dropdown-header">Login Screens:</h6>
-                    <a class="dropdown-item">Login</a>
-                    <a class="dropdown-item">Register</a>
-                    <a class="dropdown-item">Forgot Password</a>
-                    <div class="dropdown-divider"></div>
-                    <h6 class="dropdown-header">Other Pages:</h6>
-                    <a class="dropdown-item">404 Page</a>
-                    <a class="dropdown-item">Blank Page</a>
+                    <a class="dropdown-item">List</a>
+                    <a class="dropdown-item">Add</a>
                 </div>
             </li>
         </ul>
         <div id="content-wrapper">
+            <div class="container-fluid">
+            @include('components._messages')
+
             @yield('content')
+            </div>
+            <!-- /.container-fluid -->
+
+            <!-- Sticky Footer -->
+            <footer class="sticky-footer">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                    <span>Copyright © PKS 2019</span>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
 
