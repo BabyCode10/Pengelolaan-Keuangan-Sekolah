@@ -1,16 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Breadcrumbs-->
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
-        <a href="{{ route('dashboard') }}"></i>Dashboard</a>
+        <a href="{{ route('dashboard') }}">Dashboard</a>
     </li>
     <li class="breadcrumb-item">
         <a>Siswa</a>
     </li>
 </ol>
-
+@include('layouts.partials._messages')
 <!-- DataTables Example -->
 <div class="card mb-3">
     <div class="card-header">
@@ -40,11 +39,15 @@
                     <tr>
                         <td>{{ $siswa->nis }}</td>
                         <td>{{ $siswa->nama }}</td>
-                        <td>{{ $siswa->jenis_kelamin->id }}</td>
-                        <td>
-                            <a href="{{ route('siswa.edit', $siswa->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="{{ route('siswa.show', $siswa->id) }}" class="btn btn-secondary btn-sm">Detail</a>
-                            <a href="{{ route('siswa.destroy', $siswa->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                        <td>{{ $siswa->jenis_kelamin->name }}</td>
+                        <td class="d-flex flex-inline">
+                            <a href="{{ route('siswa.edit', $siswa->id) }}" class="btn btn-primary btn-sm mr-2">Edit</a>
+                            <a href="{{ route('siswa.show', $siswa->id) }}" class="btn btn-secondary btn-sm mr-2">Detail</a>
+                            <form action="{{ route('siswa.destroy', $siswa->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach

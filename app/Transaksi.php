@@ -10,4 +10,8 @@ class Transaksi extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function siswa() {
+        return $this->belongsTo('App\Siswa', 'nis_siswa');
+    }
 }

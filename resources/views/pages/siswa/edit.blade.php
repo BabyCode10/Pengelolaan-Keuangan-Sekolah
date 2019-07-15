@@ -1,19 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Breadcrumbs-->
 <ol class="breadcrumb">
     <li class="breadcrumb-item">
-        <a href="{{ route('dashboard') }}"></i>Dashboard</a>
+        <a href="{{ route('dashboard') }}">Dashboard</a>
     </li>
     <li class="breadcrumb-item">
         <a href="{{ route('siswa.index') }}">Siswa</a>
     </li>
     <li class="breadcrumb-item">
-        <a>Create</a>
+        <a>Update</a>
     </li>
 </ol>
-
+@include('layouts.partials._messages')
 <!-- DataTables Example -->
 <div class="card mb-3">
     <div class="card-header">
@@ -22,6 +21,7 @@
     <div class="card-body">
         <form action="{{ route('siswa.update', $siswa->id) }}" method="post">
             @csrf
+            @method('PATCH')
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <label for="validationNIS">NIS</label>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="validationName">{{ __('Nama') }}</label>
-                    <input name="nama" type="text" class="form-control form-control-sm @error('nama') is-invalid @enderror" id="validationName" placeholder="Nama" value="{{ $siswa->name }}" required>
+                    <input name="nama" type="text" class="form-control form-control-sm @error('nama') is-invalid @enderror" id="validationName" placeholder="Nama" value="{{ $siswa->nama }}" required>
                     @error('nama')
                     <span class="invalid-feedback text-sm" role="alert">
                         <strong>{{ $message }}</strong>

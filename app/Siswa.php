@@ -12,10 +12,14 @@ class Siswa extends Model
     ];
 
     public function jenis_kelamin() {
-        return $this->hasMany('App\JenisKelamin');
+        return $this->belongsTo('App\JenisKelamin', 'id_jenis_kelamin');
     }
 
     public function agama() {
-        return $this->hasMany('App\Agama');
+        return $this->belongsTo('App\Agama', 'id_agama');
+    }
+
+    public function transaksi() {
+        return $this->hasMany('App\Transaksi');
     }
 }

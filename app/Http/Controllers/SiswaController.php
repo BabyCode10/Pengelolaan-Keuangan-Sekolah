@@ -17,19 +17,21 @@ class SiswaController extends Controller
     public function index()
     {
         $siswas         = Siswa::all();
-        $jenis_kelamins = JenisKelamin::all();
-        $agamas         = Agama::all();
 
         return view('pages.siswa.index', compact(
             'siswas',
-            'jenis_kelamins',
-            'agamas',
         ));
     }
 
     public function create()
     {
-        return view('pages.siswa.create');
+        $jenis_kelamins = JenisKelamin::all();
+        $agamas         = Agama::all();
+
+        return view('pages.siswa.create', compact(
+            'jenis_kelamins',
+            'agamas',
+        ));
     }
 
     public function store(Request $request)
@@ -43,11 +45,11 @@ class SiswaController extends Controller
         ]);
 
         $data = [
-            'nis'           => $request->nis,
-            'nama'          => $request->nama,
-            'alamat'        => $request->alamat,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'agama'         => $request->agama,
+            'nis'               => $request->nis,
+            'nama'              => $request->nama,
+            'alamat'            => $request->alamat,
+            'id_jenis_kelamin'  => $request->jenis_kelamin,
+            'id_agama'          => $request->agama,
         ];
 
         Siswa::create($data);
@@ -88,11 +90,18 @@ class SiswaController extends Controller
         $siswa = Siswa::findOrFail($id);
 
         $this->validate($request, [
-            'nama'          => 'required',
-            'alamat'        => 'required',
-            'jenis_kalimat' => 'required',
-            'agama'         => 'required',
+            'nama'              => 'required|max:50',
+            'alamat'            => 'required',
+            'jenis_kelamin'     => 'required',
+            'agama'             => 'required',
         ]);
+
+        $data = [
+            'nama'              => $request->nama,
+            'alamat'            => $request->alamat,
+            'id_jenis_kelamin'  => $request->jenis_kelamin,
+            'id_agama'          => $request->agama,
+        ];
 
         $siswa->update($data);
 

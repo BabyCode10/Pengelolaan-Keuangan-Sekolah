@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Admin - Dashboard</title>
+    <title>{{ env('APP_NAME') }} - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ url('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -21,11 +21,11 @@
 </head>
 <body id="page-top">
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-        <span class="navbar-brand mr-1">PKS</span>
-
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
         </button>
+
+        <span class="navbar-brand mr-1">{{ env('APP_NAME') }}</span>
 
         <!-- Navbar -->
         <ul class="navbar-nav ml-auto">
@@ -76,15 +76,13 @@
                     <span>Transaksi</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <a class="dropdown-item">List</a>
-                    <a class="dropdown-item">Add</a>
+                    <a class="dropdown-item" href="{{ route('transaksi.index') }}">List</a>
+                    <a class="dropdown-item" href="{{ route('transaksi.create') }}">Add</a>
                 </div>
             </li>
         </ul>
         <div id="content-wrapper">
             <div class="container-fluid">
-            @include('components._messages')
-
             @yield('content')
             </div>
             <!-- /.container-fluid -->
@@ -93,7 +91,7 @@
             <footer class="sticky-footer">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                    <span>Copyright © PKS 2019</span>
+                    <span>Copyright © {{ env('APP_NAME') }} 2019</span>
                     </div>
                 </div>
             </footer>
@@ -118,6 +116,12 @@
     <!-- Demo scripts for this page-->
     <script src="{{ url('js/demo/datatables-demo.js') }}"></script>
     <script src="{{ url('js/demo/chart-area-demo.js') }}"></script>
+
+    <!-- JQuery Mask -->
+    <script src="{{ url('js/jquery.mask.js') }}"></script>
+    <script src="{{ url('js/jquery.mask.min.js') }}"></script>
+    
+    @yield('javascript')
 </body>
 </html>
                                 
