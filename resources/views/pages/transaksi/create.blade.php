@@ -25,7 +25,7 @@
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <label for="validationNISSiswa">{{ __('NIS Siswa') }}</label>
-                    <select name="nis_siswa" class="custom-select custom-select-sm" id="validationNISSiswa">
+                    <select name="id_siswa" class="custom-select custom-select-sm" id="validationNISSiswa">
                         @foreach ($siswas as $siswa)
                         <option value="{{ $siswa->id }}" {{ old('siswa') == $siswa->id ? 'selected' : '' }}>{{ $siswa->nis }}</option>
                         @endforeach
@@ -68,7 +68,7 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text">Rp</div>
                         </div>
-                        <input type="text" class="form-control form-control-sm" id="validationJumlahBayaran" value="{{ old('jumlah_bayaran') }}" required>
+                        <input name="jumlah_bayaran" type="text" class="form-control form-control-sm" id="validationJumlahBayaran" value="{{ old('jumlah_bayaran') }}" required>
                         @error('jumlah_bayaran')
                         <span class="invalid-feedback text-sm" role="alert">
                             <strong>{{ $message }}</strong>
@@ -96,7 +96,6 @@
 @section('javascript')
 <script>
     $(document).ready(function(){
-        // Format mata uang.
         $( '#validationJumlahBayaran' ).mask('000.000.000', {reverse: true});
     })
 </script>

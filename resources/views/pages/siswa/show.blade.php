@@ -38,11 +38,11 @@
         <div class="form-row">
             <div class="col-md-6 mb-3">
                 <label for="validationJenisKelamin">Jenis Kelamin</label>
-                <input name="nama" type="text" class="form-control form-control-sm" id="validationJenisKelamin" value="{{ $siswa->jenis_kelamin->name }}" readonly>
+                <input name="nama" type="text" class="form-control form-control-sm" id="validationJenisKelamin" value="{{ $siswa->jenis_kelamin }}" readonly>
             </div>
             <div class="col-md-6 mb-3">
                 <label for="validationAgama">Agama</label>
-                <input name="nama" type="text" class="form-control form-control-sm" id="validationAgama" value="{{ $siswa->agama->name }}" readonly>
+                <input name="nama" type="text" class="form-control form-control-sm" id="validationAgama" value="{{ $siswa->agama }}" readonly>
             </div>
         </div>
     </div>

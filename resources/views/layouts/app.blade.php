@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ env('APP_NAME') }} - Dashboard</title>
+    <title>{{ config('app.name') }} - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ url('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -25,7 +25,9 @@
         <i class="fas fa-bars"></i>
         </button>
 
-        <span class="navbar-brand mr-1">{{ env('APP_NAME') }}</span>
+        <span class="navbar-brand mr-1">
+            {{ config('app.name') }}
+        </span>
 
         <!-- Navbar -->
         <ul class="navbar-nav ml-auto">
@@ -91,7 +93,7 @@
             <footer class="sticky-footer">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                    <span>Copyright © {{ env('APP_NAME') }} 2019</span>
+                    <span>Copyright © {{ config('app.name') }} 2019</span>
                     </div>
                 </div>
             </footer>

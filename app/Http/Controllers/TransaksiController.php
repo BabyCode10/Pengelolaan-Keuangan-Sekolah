@@ -34,7 +34,7 @@ class TransaksiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nis_siswa'         => 'required',
+            'id_siswa'         => 'required',
             'nama'              => 'required|max:50',
             'kelas'             => 'required|max:50',
             'jenis_bayaran'     => 'required|max:25',
@@ -43,11 +43,11 @@ class TransaksiController extends Controller
         ]);
 
         $data = [
-            'nis_siswa'         => $request->nis_siswa,
+            'id_siswa'          => $request->id_siswa,
             'nama'              => $request->nama,
             'kelas'             => $request->kelas,
             'jenis_bayaran'     => $request->jenis_bayaran,
-            'jumlah_bayaran'    => $request->jumlah_bayaran,
+            'jumlah_bayaran'    => (int) str_replace('.', '', $request->jumlah_bayaran),
             'petugas'           => $request->petugas,
         ];
 

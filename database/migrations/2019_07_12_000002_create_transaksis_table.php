@@ -15,16 +15,16 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nis_siswa', 50);
+            $table->bigInteger('id_siswa')->unsigned();
             $table->string('nama', 50);
             $table->string('kelas', 50);
             $table->string('jenis_bayaran', 25);
-            $table->double('jumlah_bayaran', 2, 1);
+            $table->integer('jumlah_bayaran');
             $table->string('petugas', 50);
             $table->timestamps();
 
-            $table->foreign('nis_siswa')
-                ->references('nis')
+            $table->foreign('id_siswa')
+                ->references('id')
                 ->on('siswas')
                 ->onDelete('cascade');
         });

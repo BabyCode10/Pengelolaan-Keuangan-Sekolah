@@ -12,6 +12,6 @@ class Transaksi extends Model
     ];
 
     public function siswa() {
-        return $this->belongsTo('App\Siswa', 'nis_siswa');
+        return $this->belongsTo('App\Siswa', 'id_siswa');
     }
 }

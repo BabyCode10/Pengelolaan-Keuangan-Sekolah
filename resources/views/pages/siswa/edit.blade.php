@@ -58,7 +58,7 @@
                     <label for="validationJenisKelamin">{{ __('Jenis Kelamin') }}</label>
                     <select name="jenis_kelamin" class="custom-select custom-select-sm my-1 mr-sm-2" id="validationJenisKelamin">
                         @foreach ($jenis_kelamins as $jenis_kelamin)
-                        <option value="{{ $jenis_kelamin->id }}" {{ $siswa->id_jenis_kelamin == $jenis_kelamin->id ? 'selected' : '' }}>{{ $jenis_kelamin->name }}</option>
+                        <option value="{{ $jenis_kelamin }}" {{ $siswa->jenis_kelamin == $jenis_kelamin ? 'selected' : '' }}>{{ $jenis_kelamin }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -66,7 +66,7 @@
                     <label for="validationAgama">{{ __('Agama') }}</label>
                     <select name="agama" class="custom-select custom-select-sm my-1 mr-sm-2" id="validationAgama">
                         @foreach ($agamas as $agama)
-                        <option value="{{ $agama->id }}" {{ $siswa->id_agama == $agama->id ? 'selected' : '' }}>{{ $agama->name }}</option>
+                        <option value="{{ $agama }}" {{ $siswa->agama == $agama ? 'selected' : '' }}>{{ $agama }}</option>
                         @endforeach
                     </select>
                 </div>

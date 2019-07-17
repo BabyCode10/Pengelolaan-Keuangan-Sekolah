@@ -18,19 +18,17 @@ class CreateSiswasTable extends Migration
             $table->string('nis', 50)->unique();
             $table->string('nama', 50);
             $table->text('alamat');
-            $table->bigInteger('id_jenis_kelamin')->unsigned();
-            $table->bigInteger('id_agama')->unsigned();
+            $table->enum('jenis_kelamin', [
+                'laki-laki', 
+                'perempuan',
+            ]);
+            $table->enum('agama', [
+                'islam',
+                'budha',
+                'hindu',
+                'kristen',
+            ]);
             $table->timestamps();
-
-            $table->foreign('id_jenis_kelamin')
-                ->references('id')
-                ->on('jenis_kelamins')
-                ->onDelete('cascade');
-
-            $table->foreign('id_agama')
-                ->references('id')
-                ->on('agamas')
-                ->onDelete('cascade');
         });
     }
 

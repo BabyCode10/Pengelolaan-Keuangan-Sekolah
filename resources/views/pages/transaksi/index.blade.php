@@ -6,7 +6,7 @@
     <li class="breadcrumb-item">
         <a href="{{ route('dashboard') }}">Dashboard</a>
     </li>
-    <li class="breadcrumb->item">
+    <li class="breadcrumb-item">
         <a>Transaksi</a>
     </li>
 </ol>
@@ -40,7 +40,7 @@
                 <tbody>
                     @foreach($transaksis as $transaksi)
                     <tr>
-                        <td>{{ $transaksi->nis_siswa }}</td>
+                        <td>{{ $transaksi->siswa->nis }}</td>
                         <td>{{ $transaksi->nama }}</td>
                         <td>{{ $transaksi->jenis_bayaran }}</td>
                         <td>{{ $transaksi->jumlah_bayaran }}</td>
